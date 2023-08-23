@@ -1,0 +1,62 @@
+:sectnums:
+:sectnumlevels: 3
+:markup-in-source: verbatim,attributes,quotes
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+:format_cmd_exec: source,options="nowrap",subs="{markup-in-source}",role="copy"
+:format_cmd_output: bash,options="nowrap",subs="{markup-in-source}"
+:format_plain: bash,options="nowrap"
+ifeval::["%cloud_provider%" == "ec2"]
+:format_cmd_exec: source,options="nowrap",subs="{markup-in-source}",role="execute"
+endif::[]
+
+
+
+:toc:
+:toclevels: 1
+
+= Copying an existing Containerfile and modifying it to create a new container
+
+== In this excercise, we are going to take a Containerfile and content that we already have from an existing container that we created and update it to use the latest versions of the platform and loaded packages
+
+Launch a terminal and make a copy of your existing files (these are not images)
+
+[{format_cmd_exec}]
+----
+cp -a podman/simplehttpd podman/simplehttpd-latest
+----    
+
+Using your preferred text editor, edit ~/podman/simplehttpd-latest/Containerfile to use the latest version of fedora
+From This:
+[{format_cmd_exec}]
+----
+FROM registry.fedoraproject.org/fedora:37
+----
+To This:
+[{format_cmd_exec}]
+----
+FROM registry.fedoraproject.org/fedora:latest
+----
+
+Now lets make a change to our index.html file so we know we are serving different content.
+Using your preferred text editor, update ~/podman/simplehttpd-latest/content/index.html
+From This:
+[{format_cmd_exec}]
+----
+This is <Previously changed to your name>’s first container in Podman Desktop
+----
+To This:
+[{format_cmd_exec}]
+----
+This is <Previously changed to your name>’s first container in Podman Desktop running on fedora:latest
+----
+
+Now build a new image called simplehttpd-latest from this Containerfile
+Launch simplehttpd-latest (note port again)
+Go back to your browser and open http://localhost:<port of your container> in a new tab
+
