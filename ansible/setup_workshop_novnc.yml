@@ -120,15 +120,15 @@
       line: ":1={{ VNC_USERNAME }}"
       create: yes
 
-  - name: Set vnc password
-    become_user: "{{ VNC_USERNAME }}"
-    ansible.builtin.shell: printf "{{ INSTANCE_PASSWORD.stdout }}\n{{ INSTANCE_PASSWORD.stdout }}\n\n" | vncpasswd
-
   - name: Make {{ VNC_USERNAME }}/.vnc
     ansible.builtin.file:
       path: "/home/{{ VNC_USERNAME }}/.vnc"
       state: directory
     become_user: "{{ VNC_USERNAME }}"
+
+  - name: Set vnc password
+    become_user: "{{ VNC_USERNAME }}"
+    ansible.builtin.shell: printf "{{ INSTANCE_PASSWORD.stdout }}\n{{ INSTANCE_PASSWORD.stdout }}\n\n" | vncpasswd
 
   - name: Create .vnc/config
     ansible.builtin.copy:
