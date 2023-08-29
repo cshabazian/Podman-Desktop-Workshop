@@ -53,7 +53,8 @@ This lab is completed entirely in the desktop GUI
 == Podman Desktop Workshop: EXERCISES
 
 [#toc]
-  . link:{includedir}/getting-started.adoc[*Getting Started* - DO THIS FIRST! ]
+  . link:{includedir}/create-a-container.adoc[*Create a container using an existing Containerfile ]
+  . link:{includedir}/copy-a-container.adoc[*Copying an existing Containerfile and modifying it to create a new container ]
 
 [discrete]
 == Additional Resources
