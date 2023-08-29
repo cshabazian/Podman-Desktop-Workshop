@@ -25,8 +25,8 @@
 
   - name: Copy targethost
     ansible.builtin.copy:
-      src: /root/RHEL9-Workshop/config/gpte-targethost.txt
-      dest: /root/RHEL9-Workshop/config/gpte-targethost.txt
+      src: /root/RHEL9-Workshop/config/gpte-pub-fqdn-node1.txt
+      dest: /root/RHEL9-Workshop/config/gpte-pub-fqdn-node1.txt
 
   - name: Copy password file
     ansible.builtin.copy:
