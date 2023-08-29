@@ -1,6 +1,6 @@
 ---
 - name: Install novnc and optionally podman desktop
-  hosts: node1.example.com
+  hosts: node1
   become: yes
   gather_facts: yes
   collections:
@@ -13,7 +13,7 @@
     NOVNC_SYSTEMD_SERVICE: ./files/novnc.service #############  CHANGE ME  #############
     VNCCONFIG: ./files/vncconfig                 #############  CHANGE ME  #############
     PODMAN_DESKTOP: true
-    VNC_USERNAME: cloud-user # cloud-user for local build, student for build in Azure
+    VNC_USERNAME: student # cloud-user for local build, student for build in Azure
 
 
   tasks:
