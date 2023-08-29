@@ -8,7 +8,7 @@
     - ansible.posix
     - community.general
   vars:
-    INSTANCE_TARGETHOST_FILE: /root/RHEL9-Workshop/config/gpte-targethost.txt
+    INSTANCE_TARGETHOST_FILE: /root/RHEL9-Workshop/config/gpte-pub-fqdn-node1.txt
     INSTANCE_PASSWORD_FILE: /root/RHEL9-Workshop/config/gpte-studentpw.txt
     NOVNC_SYSTEMD_SERVICE: ./files/novnc.service #############  CHANGE ME  #############
     VNCCONFIG: ./files/vncconfig                 #############  CHANGE ME  #############
