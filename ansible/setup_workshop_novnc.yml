@@ -122,7 +122,7 @@
 
   - name: Set vnc password
     become_user: "{{ VNC_USERNAME }}"
-    ansible.builtin.command: printf "{{ INSTANCE_PASSWORD.stdout }}\n{{ INSTANCE_PASSWORD.stdout }}\n\n" | vncpasswd
+    ansible.builtin.shell: printf "{{ INSTANCE_PASSWORD.stdout }}\n{{ INSTANCE_PASSWORD.stdout }}\n\n" | vncpasswd
 
   - name: Make {{ VNC_USERNAME }}/.vnc
     ansible.builtin.file:
