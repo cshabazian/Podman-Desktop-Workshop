@@ -151,6 +151,7 @@
       service: "{{ item }}"
       state: enabled
       permanent: true
+      immediate: true
     with_items:
       - https
       - vnc-server
@@ -160,6 +161,20 @@
       state: started
       enabled: true
       name: vncserver@:1.service
+
+  - name: Write novnc URL to a file
+    copy:
+      dest: /root/Podman-Desktop-Workshop/novnc_url
+      content: |
+        https://{{ TARGETHOST.stdout }}/vnc.html?host={{ TARGETHOST.stdout }}&port=443
+    delegate_to: localhost
+
+  - name: Copy targethost
+    ansible.builtin.copy:
+      src: /root/Podman-Desktop-Workshop/novnc_url
+      dest: /home/{{ VNC_USERNAME }}/novnc_url
+      owner: VNC_USERNAME
+      group: VNC_USERNAME
 
   - name: Install the Podman Desktop flatpak if "PODMAN_DESKTOP == true"
     community.general.flatpak:
