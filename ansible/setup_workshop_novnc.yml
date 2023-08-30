@@ -18,6 +18,20 @@
 
   tasks:
 
+  - name: Make sure the VNC_USERNAME user exists
+    ansible.builtin.user:
+      name: "{{ VNC_USERNAME }}"
+      groups: wheel
+      append: yes
+
+  - name: Ensure VNC_USERNAME has NOPASSWD sudo
+    ansible.builtin.lineinfile:
+      path: "/etc/sudoers.d/{{ VNC_USERNAME }}"
+      line: "student ALL=(ALL)       NOPASSWD: ALL"
+      create: yes
+      owner: root
+      group: root
+
   - name: Make the necessary directory for build files
     ansible.builtin.file:
       path: /root/RHEL9-Workshop/config
