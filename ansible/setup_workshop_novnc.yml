@@ -169,12 +169,12 @@
         https://{{ TARGETHOST.stdout }}/vnc.html?host={{ TARGETHOST.stdout }}&port=443
     delegate_to: localhost
 
-  - name: Copy targethost
+  - name: Copy novnc URL
     ansible.builtin.copy:
       src: /root/Podman-Desktop-Workshop/novnc_url
       dest: /home/{{ VNC_USERNAME }}/novnc_url
-      owner: VNC_USERNAME
-      group: VNC_USERNAME
+      owner: "{{ VNC_USERNAME }}"
+      group: "{{ VNC_USERNAME }}"
 
   - name: Install the Podman Desktop flatpak if "PODMAN_DESKTOP == true"
     community.general.flatpak:
