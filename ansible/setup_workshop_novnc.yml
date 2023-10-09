@@ -180,7 +180,7 @@
     copy:
       dest: /root/Podman-Desktop-Workshop/novnc_url
       content: |
-        https://{{ TARGETHOST.stdout }}/vnc.html?host={{ TARGETHOST.stdout }}&port=443
+        Your desktop interface can be reached at https://{{ TARGETHOST.stdout }}/vnc.html?host={{ TARGETHOST.stdout }}&port=443
     delegate_to: localhost
 
   - name: Copy novnc URL
