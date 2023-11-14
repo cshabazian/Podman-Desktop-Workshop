@@ -14,6 +14,9 @@
     VNCCONFIG: ./files/vncconfig                 #############  CHANGE ME  #############
     PODMAN_DESKTOP: true
     VNC_USERNAME: student # cloud-user for local build, student for build in Azure
+    CONTAINERFILE: ./files/Containerfile 
+    INDEXFILE: ./files/index.html 
+    INSTRUCTIONFILE: ./files/instructions.html 
 
 
   tasks:
@@ -151,6 +154,30 @@
       owner: "{{ VNC_USERNAME }}"
       group: "{{ VNC_USERNAME }}"
       mode: 0644
+
+  - name: Create Containerfile
+    ansible.builtin.copy:
+      src: "{{ CONTAINERFILE }}"
+      dest: "/home/{{ VNC_USERNAME }}/podman/simplehttpd/Containerfile"
+      owner: "{{ VNC_USERNAME }}"
+      group: "{{ VNC_USERNAME }}"
+      mode: 0664
+
+  - name: Create index.html
+    ansible.builtin.copy:
+      src: "{{ INDEXFILE }}"
+      dest: "/home/{{ VNC_USERNAME }}/podman/simplehttpd/content/index.html"
+      owner: "{{ VNC_USERNAME }}"
+      group: "{{ VNC_USERNAME }}"
+      mode: 0664
+
+  - name: Create instructions.html
+    ansible.builtin.copy:
+      src: "{{ INSTRUCTIONFILE }}"
+      dest: "/home/{{ VNC_USERNAME }}/podman/instructions.html"
+      owner: "{{ VNC_USERNAME }}"
+      group: "{{ VNC_USERNAME }}"
+      mode: 0664
 
   - name: Set gnome session for vnc
     ansible.builtin.lineinfile:
