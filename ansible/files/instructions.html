@@ -1,1 +1,172 @@
-Placeholder for instructions
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.6.1.2 (Windows)"/>
+	<meta name="created" content="2023-08-23T11:43:55.848000000"/>
+	<meta name="changed" content="2023-11-14T14:15:25.604000000"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		a:link { color: #000080; so-language: zxx; text-decoration: underline }
+		a:visited { color: #800000; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 100%; margin-bottom: 0in">
+<b><font size="6" style="font-size: 24pt">Provisioning the Podman
+Desktop Lab:</font></b></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><b>To build the the
+Podman Desktop lab:</b></p>
+<p style="font-weight: normal; line-height: 100%; margin-bottom: 0in">
+as student on node1, in the <font color="#c9211e"><b>SECOND</b></font>
+terminal, run:</p>
+<p style="font-weight: normal; line-height: 100%; margin-bottom: 0in">
+<font face="Courier New, monospace">curl -L https://2get2.site/pdw |
+bash</font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font size="6" style="font-size: 24pt"><b>Running
+the Podman Desktop Lab:</b></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><b>Login to the
+desktop interface using the URL listed in one of these two files:</b></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font face="Courier New, monospace">/root/<span style="font-weight: normal">Podman-Desktop-Workshop/novnc_url</span></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font face="Courier New, monospace"><span style="font-weight: normal">/</span><span style="font-weight: normal">home/student/novnc_url</span></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><span style="font-weight: normal">The
+password is the same as the password provided for the rest of the
+workshop</span></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<hr/>
+
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#c9211e"><b>These
+instructions are located at ~/podman/instructions.html and can be
+viewed in a browser</b></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<hr/>
+
+<p style="line-height: 100%; margin-bottom: 0in"><b>Launch podman
+desktop:</b></p>
+<ul>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Click
+	Activities on the top left of your window and type “podman” in
+	the search box that appears.  Select “Podman Desktop” to launch
+	the program</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Click “Go to
+	Podman Desktop”<br/>
+<br/>
+
+	</p></li>
+</ul>
+<p style="line-height: 100%; margin-bottom: 0in"><b>Examine the
+Containerfile for the first image we are going to create:</b></p>
+<ul>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Launch Text
+	Editor and open ~/ podman/simplehttpd/Containerfile</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Do not edit
+	this file, just view it for the build information</p></li>
+</ul>
+<p style="line-height: 100%; margin-left: 1.5in; margin-bottom: 0in; background: transparent; page-break-before: auto">
+<font face="Courier New, monospace">FROM
+registry.fedoraproject.org/fedora:37</font></p>
+<p style="line-height: 100%; margin-left: 1.5in; margin-bottom: 0in; background: transparent">
+<font face="Courier New, monospace">RUN dnf install -y httpd</font></p>
+<p style="line-height: 100%; margin-left: 1.5in; margin-bottom: 0in; background: transparent">
+<font face="Courier New, monospace">COPY content/* /var/www/html/</font></p>
+<p style="line-height: 100%; margin-left: 1.5in; margin-bottom: 0in; background: transparent">
+<font face="Courier New, monospace">EXPOSE 80</font></p>
+<p style="line-height: 100%; margin-left: 1.5in; margin-bottom: 0in; background: transparent">
+<font face="Courier New, monospace">CMD [&quot;httpd&quot;,
+&quot;-DFOREGROUND&quot;]</font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><b>Open
+~/podman/simplehttpd/content/index.html in the Text Editor and change
+&lt;name&gt; to your name</b></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font face="Courier New, monospace">Hello
+World&lt;P&gt;</font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font face="Courier New, monospace">This
+is &lt;name&gt;’s first container in Podman Desktop</font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><b>Build an image
+from the Containerfile</b></p>
+<ul>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Select 	images
+	from the left hand navigation pane</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Select “Build
+	an image”</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Select your
+	Containerfile (~/podman/simplehttpd/Containerfile)</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Change the
+	containername to something like “simplehttpd”</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Click Build</p></li>
+</ul>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><b>Now launch the
+container</b></p>
+<ul>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Select images
+	again from the navigation pane</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Click “play”
+	on the newly created image</p>
+	<ul>
+		<li><p style="line-height: 100%; margin-bottom: 0in"><font color="#c9211e">Note
+		the port it will start on (you can edit this if you wish)</font></p></li>
+	</ul>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Click “Start
+	Container”</p></li>
+</ul>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><b>L</b><b>aunch
+your browser and open <a href="http://localhost/">http://localhost</a>:</b><font color="#c9211e"><b>&lt;port
+of your container&gt;</b></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><b>Now lets
+duplicate this running on the latest version of fedora</b></p>
+<ul>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Launch a
+	terminal and make a copy of your existing files (these are not
+	images)</p>
+	<ul>
+		<li><p style="line-height: 100%; margin-bottom: 0in"><font face="Courier New, monospace">cp
+		-a ~/podman/simplehttpd ~/podman/simplehttpd-latest</font></p></li>
+	</ul>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Edit
+	~/podman/simplehttpd-latest/Containerfile to use <font face="Courier New, monospace">fedora:latest</font></p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Append “on
+	<font face="Courier New, monospace">fedora:latest</font>” to
+	~/podman/simplehttpd-latest/content/index.html 
+	</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Build new image
+	called <font color="#c9211e">simplehttpd-latest</font> from this
+	Containerfile</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Launch
+	simplehttpd-latest (note port again)</p></li>
+	<li><p style="line-height: 100%; margin-bottom: 0in">Go back to your
+	browser and open <a href="http://localhost/">http://localhost</a>:&lt;port
+	of your container&gt; in a new tab</p></li>
+</ul>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+</body>
+</html>
