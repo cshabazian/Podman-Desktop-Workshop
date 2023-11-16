@@ -161,7 +161,7 @@
       state: directory
       owner: "{{ VNC_USERNAME }}"
       group: "{{ VNC_USERNAME }}"
-      mode: 0644
+      mode: 0755
 
   - name: Create Containerfile
     ansible.builtin.copy:
