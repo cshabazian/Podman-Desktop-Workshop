@@ -1,0 +1,5 @@
+FROM registry.access.redhat.com/ubi9/ubi:9.3
+RUN dnf install -y httpd
+COPY content/* /var/www/html/
+EXPOSE 80
+CMD ["httpd", "-DFOREGROUND"]
