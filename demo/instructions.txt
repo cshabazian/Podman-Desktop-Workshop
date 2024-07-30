@@ -1,0 +1,32 @@
+
+# Build an image from the above Containerfile
+# Images | Build
+# Containerfile path: ~/webserver_9.3/Containerfile
+# Image name: webserver_9.3
+
+# Run the just built image
+# Containers | Create | Existing Image | webserver_9.3 | Play
+# Container name: webserver_9.3
+# Note the port mapping
+# Show the webserver running, and show the redhat-release version
+
+# Copy the 9.3 webserver and update it to 9.4
+cp -a ~/webserver_9.3 ~/webserver_9.4
+# Edit the files to use 9.4
+cd ~ && code .  # This will launch vscode.  Manual instructions below:
+# cd ~/webserver_9.4
+# vi ~/webserver_9.4/Containerfile
+## Edit the index.html changing "first" to "updated" and 9.3 to 9.4
+# vi ~/webserver_9.4/content/index.html
+
+# Build a new image from the updated Containerfile
+# Images | Build
+# Containerfile path: ~/webserver_9.4/Containerfile
+# Image name: webserver_9.4
+
+ (This time, go straight to images and select webserver_9.4 )
+# Images | Play
+# Container name: webserver_9.4
+# Note the port mapping
+# Show the webserver running, and show the redhat-release version
+
