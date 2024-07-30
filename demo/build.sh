@@ -4,3 +4,6 @@ curl -s https://raw.githubusercontent.com/cshabazian/Podman-Desktop-Workshop/mai
 mkdir -p ~/webserver_9.3/content
 curl -s https://raw.githubusercontent.com/cshabazian/Podman-Desktop-Workshop/main/demo/content/index.html -o ~/webserver_9.3/content/index.html
 curl -s https://raw.githubusercontent.com/cshabazian/Podman-Desktop-Workshop/main/demo/Containerfile -o ~/webserver_9.3/Containerfile
+mkdir -p ~/.kube
+touch ~/.kubeconfig
+touch ~\.kube\config
